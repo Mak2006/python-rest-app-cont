@@ -54,7 +54,9 @@ my_app/
 
 ### Enhance the UI 
 The UI at present has no authentication or authorisation, it is a simple mechnism to obtain some input and call the rest service exposed and get the response. ** At this stage** the back end is not done so we mock the rest layer and test it. This is merely achived by including a home.html which serves as the landing page of our application. 
-We add a welcome note and add a form.
+Changes we make are 
+	1. We add a welcome note and add a form.
+	2. We then add teh post handlers.
 
 ### The testing debugging the UI layer. 
 
