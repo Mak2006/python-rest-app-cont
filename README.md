@@ -32,10 +32,11 @@ The source code of the application is available at github.
 ### Create a configuratioin for the project so that we can handle prod, preprod, staging, dev environments. 
 1. At a small scale we create a small Flask server `server.py` and have Debug - enabled 
 1. We create a separate configuration file 'myconfig.cfg' and load it via  `app.config.from_pyfile('myconfig.cfg') `
-1. In this case include a Configuration Object itself. This is handled by `configuration.py`. We load it using `
+1. In this case include a Configuration Object itself. This is handled by `configuration.py`. We load it using `app.config.from_object('configuration.DevelopmentConfig')`. Altered the `server.py` to include this.
+1. With debug on we made some changes to `server.py` and refresh the browser. We are able to see the changes.
 
 ### Project organization 
-1. We use the generic Flask based structure
+1. We use the generic Flask based structure and adopt structure which can be enhanced in the future. 
 
 ```
 my_app/ 
@@ -48,6 +49,14 @@ my_app/
         - images/ 
             - home.png 
 ```
+
+### We now build the UI layers
+
+### The REST backend layer and the model
+
+###
+
+
 
 
 

@@ -11,7 +11,7 @@ class ProductionConfig(BaseConfig):
     # set debug to false
     DEBUG = False
     # take the key from secret file
-    SECRET_KEY = open('/dir/secret/file').read()
+    #SECRET_KEY = open('/secret/file').read()
 
 
 class StagingConfig(BaseConfig):
