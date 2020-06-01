@@ -1,7 +1,7 @@
 # python-rest-app-cont
 
 # Aim of the application 
-Demo of a python based REST api microservices based applciation. The application adds two numbers and returns the result. The UI is intended as the first microservice and the backend as the second one.  
+**Demo of a python based REST api microservices based applciation. The application adds two numbers and returns the result. The UI is intended as the first microservice and the backend as the second one.  **
 
 ## Stages of the application
 1. Stage 1 - Create a monolith and implement the fuctionality. 
