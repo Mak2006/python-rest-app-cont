@@ -53,14 +53,14 @@ my_app/
 
 ### Test run the application. 
 `python server.py` launces this and the application would be available at the stock URL 
-![enter image description here](https://i.imgur.com/Wl2h9Nl.png)
+![enter image description here](https://i.imgur.com/rPo5m1T.png)
 
 ### Enhance the UI 
 The UI at present has no authentication or authorisation, it is a simple mechnism to obtain some input and call the rest service exposed and get the response.  This is merely achived by including a home.html which serves as the landing page of our application. 
 
 Changes we make are 
 1. We add a welcome note and add a form.
-At this stage our application is ![App](https://i.imgur.com/xpJc4HA.png)
+At this stage our application is ![App](https://i.imgur.com/w5yGfU3.png)
 
 2. We then add teh post handlers.
 
