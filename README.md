@@ -67,6 +67,10 @@ A add method is created. It is exposed as as POST method using `@app.route('/big
 ### The testing debugging the UI layer. We do the following test
 1. Using curl to post a message. 
 curl -i -H "Content-Type: application/json" -X POST -d '{"number1":"20", "number2":"30", "number3":"40"}' http://127.0.0.1:5000/bigmaths/api/v1.0/add
+
+Firing a few curls gives the result below 
+![res](https://i.imgur.com/5Z7J25e.png)
+
 2. create a test module to test the add method
 
 
