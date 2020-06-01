@@ -1,26 +1,23 @@
 # python-rest-app-cont
 
-# Aim of the application - Demo of a python based REST api microservices based applciation. 
+# Aim of the application - Demo of a python based REST api microservices based applciation. The application adds two numbers and returns the result. The UI is intended as the first microservice and the backend as the second one.  
 
-## Architecture
+## Stages of the application
+1. Stage 1 - Create a monolith and implement the fuctionality. 
+2. Stage 2 - Dissect the application into two microservices, add swagger documentation for REST API.
+3. Stage 3 - Containerize the applicaition and host on Docker or Heroku
+
+## Current status of application 
+1. Stage 1 WIP
+	
+
+## Final Architecture
 A client server microservice based application. 
-
 Client is web based UI, a flask based python microservice application. 
-
 Server is a microservice which exposes a REST API.  The REST API documentation is using Swagger documentation. 
 For now the service does not use a backend. 
 
-##SDLC
-
-The testing of the done using, The CI/CD is done using Jenkins. 
-
-Containerization using docker and kubernetes. 
-
-
 ## Usage
-The applicaiton is available for download at docker registry. 
-The source code can be installed with the following command `xyz`
-
 The source code of the application is available at github. 
 
 ## What was done 
