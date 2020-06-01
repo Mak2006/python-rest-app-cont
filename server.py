@@ -35,13 +35,15 @@ def add():
 
     #for the result
     result = {
-        'result': a+b+c #compute
+        'result': add(a, b, c) # call the service
     }
 
     # return
     return jsonify({'result': result}), 201
 
-
+#this forms our actual data layer.
+def add( a, b, c):
+    return a+b+c
 
 #Make it run.
 if __name__ == '__main__':

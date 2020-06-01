@@ -47,8 +47,8 @@ my_app/
         - js/ 
         - images/ 
             - home.png 
-    - tests
-       - functional
+    - tests            
+       - functional  
        - unit
 ```
 1. we create the __init__.py file, so that we can treat it as moudle
@@ -73,10 +73,11 @@ curl -i -H "Content-Type: application/json" -X POST -d '{"number1":"20", "number
 Firing a few curls gives the result below 
 ![res](https://i.imgur.com/rETQRdq.png)
 
-### We now create a test module to test the ``add` service.
+### We now create a test module to test the `add` service.
 Under application root we include a `tests` directory and create our tests `test_addsvc.py` We use pytest rather than the built in `unittest` as pytest does more, and already have it installed. pytest would auto discover the tests from file prefixed with `test_`. We further keep our functional and unit tests separate. 
 
 ### Exposing the documentation for the REST layer
+
 
 
 ### Adding basic error check 
