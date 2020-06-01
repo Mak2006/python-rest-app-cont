@@ -23,6 +23,11 @@ The source code can be installed with the following command `xyz`
 
 The source code of the application is available at github. 
 
+### What was done 
+
+1. We install virtualenv, create a directory for the env and install Flask in it. 
+
+
 
 
 
