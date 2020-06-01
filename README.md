@@ -23,14 +23,16 @@ The source code can be installed with the following command `xyz`
 
 The source code of the application is available at github. 
 
-### What was done 
+## What was done 
 
+### Installation of virtualenv and Flask, project set up. 
 1. We install virtualenv, create a directory for the env and install Flask in it. Flasks installs the core components flask, Werkzeug, Jinja2, click, itsdangerous, and markupsafe.
-2. We create a small Flask server `server.py`
-	1. Debug - enabled 
-	2. 
+2. Create Github and load the project in PyCharm. 
+
+### Create a configuratioin for the project so that we can handle prod, preprod, staging, dev environments. 
+1. At a small scale we create a small Flask server `server.py` and have Debug - enabled 
 1. We create a separate configuration file 'myconfig.cfg' and load it via  `app.config.from_pyfile('myconfig.cfg') `
-1. 
+1. In this case include a Configuration Object itself. This is handled by `configuration.py`. We load it using `
 
 
 
