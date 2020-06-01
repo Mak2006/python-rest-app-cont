@@ -64,14 +64,15 @@ At this stage it is a monolith and in the same `server.py` we create our service
 We add the HTTP POST handlers. This is the part where the REST api is created. 
 A add method is created. It is exposed as as POST method using `@app.route('/bigmaths/api/v1.0/add', methods=['POST'])`. The input parameters are obtained via `a = request.json.get('number1', 0);` where `number1` matches the input field. The data is then converted to floats. Then the result is then returned via jsonify object
 
-### The testing debugging the UI layer. We do the following test
+### Testing the `add` service layer. We do the following test
 1. Using curl to post a message. 
 curl -i -H "Content-Type: application/json" -X POST -d '{"number1":"20", "number2":"30", "number3":"40"}' http://127.0.0.1:5000/bigmaths/api/v1.0/add
 
 Firing a few curls gives the result below 
 ![res](https://i.imgur.com/rETQRdq.png)
 
-2. create a test module to test the ``add` service.
+### We now create a test module to test the ``add` service.
+
 
 ### Exposing the documentation for the REST layer
 
