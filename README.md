@@ -56,20 +56,24 @@ my_app/
 ![enter image description here](https://i.imgur.com/rPo5m1T.png)
 
 ### Enhance the UI 
-The UI at present has no authentication or authorisation, it is a simple mechnism to obtain some input and call the rest service exposed and get the response.  This is merely achived by including a home.html which serves as the landing page of our application. 
-
-Changes we make are 
-1. We add a welcome note and add a form.
+The UI at present has no authentication or authorisation, it is a simple mechnism to obtain some input and call the rest service exposed and get the response.  This is merely achived by including a home.html which serves as the landing page of our application. We change it and we add a welcome note and add a form.
 At this stage our application is ![App](https://i.imgur.com/w5yGfU3.png)
 
-2. We then add teh post handlers.
-
-### The testing debugging the UI layer. 
-
-
 ### The REST backend layer and the model
+At this stage it is a monolith and in the same `server.py` we create our service and model. 
+We add the HTTP POST handlers. This is the part where the REST api is created. 
+A add method is created. It is exposed as as POST method using `@app.route('/bigmaths/api/v1.0/add', methods=['POST'])`. The input parameters are obtained via `a = request.json.get('number1', 0);` where `number1` matches the input field. The data is then converted to floats. Then the result is then returned via jsonify object
 
-### The testing debugging the UI layer. 
+### The testing debugging the UI layer. We do the following test
+1. Using curl to post a message. 
+curl -i -H "Content-Type: application/json" -X POST -d '{"number1":"20", "number2":"30", "number3":"40"}' http://127.0.0.1:5000/bigmaths/api/v1.0/add
+2. create a test module to test the add method
+
+
+### Adding basic error check 
+1. We 4xx and 5xx checks.
+2. We tackle conversion errors. 
+
 
 ### Exposing the documentation for the REST layer
 
