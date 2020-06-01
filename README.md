@@ -71,15 +71,20 @@ curl -i -H "Content-Type: application/json" -X POST -d '{"number1":"20", "number
 Firing a few curls gives the result below 
 ![res](https://i.imgur.com/rETQRdq.png)
 
-2. create a test module to test the add method
+2. create a test module to test the ``add` service.
+
+### Exposing the documentation for the REST layer
 
 
 ### Adding basic error check 
 1. We 4xx and 5xx checks.
 2. We tackle conversion errors. 
 
+### Adding Logging 
 
-### Exposing the documentation for the REST layer
+### Adding basic security
+
+### Marrying the UI with the REST service
 
 ### Deploy and check the application 
 1. using curl with jq
