@@ -19,17 +19,18 @@ For now the service does not use a backend.
 
 ## Usage
 The source code of the application is available at github. 
+Install Python, Flask and run the server.py
 
 ## What was done 
 
 ### Installation of virtualenv and Flask, project set up. 
 1. We install virtualenv, create a directory for the env and install Flask in it. Flasks installs the core components flask, Werkzeug, Jinja2, click, itsdangerous, and markupsafe.
-2. Create Github and load the project in PyCharm. 
+2. Create Github repo and load the project in PyCharm. 
 
 ### Create a configuratoin for the project so that we can handle prod, preprod, staging, dev environments. 
 1. At a small scale we create a small Flask server `server.py` and have Debug - enabled 
 1. We create a separate configuration file 'myconfig.cfg' and load it via  `app.config.from_pyfile('myconfig.cfg') `
-1. In this case include a Configuration Object itself. This is handled by `configuration.py`. We load it using `app.config.from_object('configuration.DevelopmentConfig')`. Altered the `server.py` to include this.
+1. In this case include a Configuration Object itself. This is handled by `configuration.py`. We load it using `app.config.from_object('configuration.DevelopmentConfig')`. We change the `server.py` to include this.
 1. With debug on we made some changes to `server.py` and refresh the browser. We are able to see the changes.
 
 ### Project organization 
@@ -49,11 +50,17 @@ my_app/
 ```
 1. we create the __init__.py file, so that we can treat it as moudle
 
+### Test run the application. 
+`python server.py` launces this and the application would be available at the stock URL 
+![enter image description here](https://i.imgur.com/Wl2h9Nl.png
+
 ### Enhance the UI 
-The UI at present has no authentication or authorisation, it is a simple mechnism to obtain some input and call the rest service exposed and get the response. ** At this stage** the back end is not done so we mock the rest layer and test it. This is merely achived by including a home.html which serves as the landing page of our application. 
+The UI at present has no authentication or authorisation, it is a simple mechnism to obtain some input and call the rest service exposed and get the response.  This is merely achived by including a home.html which serves as the landing page of our application. 
 
 Changes we make are 
 1. We add a welcome note and add a form.
+At this stage our application is ![App](https://i.imgur.com/xpJc4HA.png)
+
 2. We then add teh post handlers.
 
 ### The testing debugging the UI layer. 
