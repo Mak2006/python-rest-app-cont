@@ -25,7 +25,10 @@ The source code of the application is available at github.
 
 ### What was done 
 
-1. We install virtualenv, create a directory for the env and install Flask in it. 
+1. We install virtualenv, create a directory for the env and install Flask in it. Flasks installs the core components flask, Werkzeug, Jinja2, click, itsdangerous, and markupsafe.
+2. We create a small Flask server `server.py`
+	1. Debug - enabled 
+	2. 
 
 
 

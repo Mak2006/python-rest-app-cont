@@ -1,7 +1,7 @@
 from flask import Flask
 
 app = Flask(__name__)
-
+app.config['DEBUG'] = True   # enable debug mode for development
 
 @app.route('/')
 def hello_world():
