@@ -2,9 +2,10 @@ from flask import Flask
 
 app = Flask(__name__)
 
-#Load configuration
-app.config['DEBUG'] = True   # enable debug mode for development
-app.config.from_pyfile('myconfig.cfg')
+#Load configuration from configuration.py
+# this loads the debug values and secret keys etc.
+# handles different environments.
+app.config.from_object('configuration.DevelopmentConfig')
 
 @app.route('/')
 def hello_world():

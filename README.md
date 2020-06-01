@@ -34,6 +34,21 @@ The source code of the application is available at github.
 1. We create a separate configuration file 'myconfig.cfg' and load it via  `app.config.from_pyfile('myconfig.cfg') `
 1. In this case include a Configuration Object itself. This is handled by `configuration.py`. We load it using `
 
+### Project organization 
+1. We use the generic Flask based structure
+
+```
+my_app/ 
+    - app.py 
+    - config.py 
+    - __init__.py 
+    - static/ 
+       - css/ 
+        - js/ 
+        - images/ 
+            - home.png 
+```
+
 
 
 
