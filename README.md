@@ -69,7 +69,7 @@ A add method is created. It is exposed as as POST method using `@app.route('/big
 curl -i -H "Content-Type: application/json" -X POST -d '{"number1":"20", "number2":"30", "number3":"40"}' http://127.0.0.1:5000/bigmaths/api/v1.0/add
 
 Firing a few curls gives the result below 
-![res](https://i.imgur.com/5Z7J25e.png)
+![res](https://i.imgur.com/rETQRdq.png)
 
 2. create a test module to test the add method
 
