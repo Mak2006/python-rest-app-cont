@@ -1,15 +1,22 @@
 from flask import Flask
+from flask import render_template
 
-app = Flask(__name__)
+# Create the Flask application instance
+app = Flask(__name__, template_folder="static")
+
+
 
 #Load configuration from configuration.py
 # this loads the debug values and secret keys etc.
 # handles different environments.
 app.config.from_object('configuration.DevelopmentConfig');
 
+
+
+# We create a landing page
 @app.route('/')
-def hello_world():
-    return 'Hello from Flask!12'
+def home():
+    return render_template('home.html')
 
 
 if __name__ == '__main__':

@@ -29,7 +29,7 @@ The source code of the application is available at github.
 1. We install virtualenv, create a directory for the env and install Flask in it. Flasks installs the core components flask, Werkzeug, Jinja2, click, itsdangerous, and markupsafe.
 2. Create Github and load the project in PyCharm. 
 
-### Create a configuratioin for the project so that we can handle prod, preprod, staging, dev environments. 
+### Create a configuratoin for the project so that we can handle prod, preprod, staging, dev environments. 
 1. At a small scale we create a small Flask server `server.py` and have Debug - enabled 
 1. We create a separate configuration file 'myconfig.cfg' and load it via  `app.config.from_pyfile('myconfig.cfg') `
 1. In this case include a Configuration Object itself. This is handled by `configuration.py`. We load it using `app.config.from_object('configuration.DevelopmentConfig')`. Altered the `server.py` to include this.
@@ -40,18 +40,20 @@ The source code of the application is available at github.
 
 ```
 my_app/ 
-    - app.py 
-    - config.py 
+    - server.py 
+    - configuration.py 
     - __init__.py 
     - static/ 
+       - home.html  # our landing page
        - css/ 
         - js/ 
         - images/ 
             - home.png 
 ```
+1. we create the __init__.py file, so that we can treat it as moudle
 
 ### We now build the UI layers
-The UI at present has no authentication or authorisation, it is a simple mechnism to obtain some input and call the rest service exposed and get the response. ** At this stage** the back end is not done so we mock the rest layer and test it. 
+The UI at present has no authentication or authorisation, it is a simple mechnism to obtain some input and call the rest service exposed and get the response. ** At this stage** the back end is not done so we mock the rest layer and test it. This is merely achived by including a home.html which serves as the landing page of our application. 
 
 ### The testing debugging the UI layer. 
 
