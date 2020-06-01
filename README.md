@@ -52,7 +52,7 @@ my_app/
 
 ### Test run the application. 
 `python server.py` launces this and the application would be available at the stock URL 
-![enter image description here](https://i.imgur.com/Wl2h9Nl.png
+![enter image description here](https://i.imgur.com/Wl2h9Nl.png)
 
 ### Enhance the UI 
 The UI at present has no authentication or authorisation, it is a simple mechnism to obtain some input and call the rest service exposed and get the response.  This is merely achived by including a home.html which serves as the landing page of our application. 
