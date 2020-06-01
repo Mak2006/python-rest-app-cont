@@ -1,6 +1,6 @@
 # python-rest-app-cont
 
-#Aim of the application - Demo of a python based REST api microservices based applciation. 
+# Aim of the application - Demo of a python based REST api microservices based applciation. 
 
 ## Architecture
 A client server microservice based application. 
