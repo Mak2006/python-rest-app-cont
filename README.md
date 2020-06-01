@@ -51,10 +51,28 @@ my_app/
 ```
 
 ### We now build the UI layers
+The UI at present has no authentication or authorisation, it is a simple mechnism to obtain some input and call the rest service exposed and get the response. ** At this stage** the back end is not done so we mock the rest layer and test it. 
+
+### The testing debugging the UI layer. 
+
 
 ### The REST backend layer and the model
 
-###
+### The testing debugging the UI layer. 
+
+### Exposing the documentation for the REST layer
+
+### Deploy and check the application 
+1. using curl with jq
+2. using the view layers
+
+### Next steps, 
+1. partition the application into separate microservices 
+1. Make the application ready for containerization. 
+1. use docker and k8s for containerization. 
+2. set up Jenkins for auto packaging and release. 
+1. Push the images to docker unofficial repo
+
 
 
 
