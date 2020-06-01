@@ -29,6 +29,8 @@ The source code of the application is available at github.
 2. We create a small Flask server `server.py`
 	1. Debug - enabled 
 	2. 
+1. We create a separate configuration file 'myconfig.cfg' and load it via  `app.config.from_pyfile('myconfig.cfg') `
+1. 
 
 
 
