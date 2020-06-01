@@ -18,6 +18,9 @@ Client is web based UI, a flask based python microservice application.
 Server is a microservice which exposes a REST API.  The REST API documentation is using Swagger documentation. 
 For now the service does not use a backend. 
 
+## SDLC
+From architecture point of view we start with Monolith and then shall move to microservices. From engineering point of view, we create the tests and then go on to develop the features. 
+
 ## Usage
 The source code of the application is available at github. 
 Install Python, Flask and run the server.py
