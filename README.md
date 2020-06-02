@@ -38,7 +38,7 @@ Install Python, Flask and run the server.py
 
 ```
 my_app/ 
-    - server.py 
+    - server.py  # serves a monolith , contain view, model
     - configuration.py 
     - __init__.py 
     - static/ 
@@ -50,6 +50,7 @@ my_app/
     - tests            
        - functional  
        - unit
+    - model
 ```
 1. we create the __init__.py file, so that we can treat it as moudle
 
@@ -75,6 +76,11 @@ Firing a few curls gives the result below
 
 ### We now create a test module to test the `add` service.
 Under application root we include a `tests` directory and create our tests `test_addsvc.py` We use pytest rather than the built in `unittest` as pytest does more, and already have it installed. pytest would auto discover the tests from file prefixed with `test_`. We further keep our functional and unit tests separate. 
+
+### TDD 
+At this stage we are ripe enough to introduce TDD, we intend to creat the following tests
+1. functional - that the `UI` layer , web pages handles auth, 4xx and 5xx errors, shows the result. 
+1. unit - `add` service throws proper error on incorrect input, computes correctly. 
 
 ### Exposing the documentation for the REST layer
 

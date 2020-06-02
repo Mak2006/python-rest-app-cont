@@ -39,7 +39,7 @@ def add():
 
     #for the result
     result = {
-        'result': add(a, b, c) # call the service
+        'result': add(vo) # call the service with the vo.
     }
 
     # return
@@ -47,7 +47,7 @@ def add():
 
 #this forms our actual data layer.
 def add(vo):
-    return vo.sum()
+    return vo.addservice()
 
 #Make it run.
 if __name__ == '__main__':

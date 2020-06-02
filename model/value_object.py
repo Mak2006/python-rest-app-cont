@@ -1,5 +1,11 @@
 import pandas as pd
-class Valueobj:
-    def __init__(self, num1, num2, num3):
-        series = pd.Series([num1, num2, num3])
 
+# use to pass data from the service to the data layer.
+
+class Valueobj:
+
+    def __init__(self, num1, num2, num3):
+        self.series = pd.Series([num1, num2, num3])
+
+    def addservice(self):
+        return self.series.sum()
