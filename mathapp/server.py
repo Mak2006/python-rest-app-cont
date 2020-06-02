@@ -1,5 +1,7 @@
 from flask import Flask
 from flask import render_template, jsonify, request
+
+
 from mathapp.service import sum
 
 
@@ -26,9 +28,11 @@ def home():
 @app.route('/mathapp/api/v1.0/add', methods=['POST'])
 def add():
     # Obtain the inputs
-    a = request.json.get('number1', 0)
-    b = request.json.get('number2', 0)
-    c = request.json.get('number3', 0)
+
+    # removing support for curl
+    a = request.json.get('number1')
+    b = request.json.get('number2')
+    c = request.json.get('number3')
 
     # converting to int
     data = [float(a), float(b), float(c)]
@@ -41,10 +45,15 @@ def add():
     # return
     return jsonify({'result': result}), 201
 
+# Add a 404 custom for pytest
 @app.errorhandler(404)
 def key_error(e):
     return render_template('404.html'), 404
 
+#Add a custom 500 for pytest
+@app.errorhandler(Exception)
+def internal_server_error(e):
+    return render_template('500.html'), 500
 
 #Make it run.
 if __name__ == '__main__':
