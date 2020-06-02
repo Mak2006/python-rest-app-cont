@@ -10,6 +10,7 @@
 
 ## Current status of application 
 1. Stage 1 WIP	
+2. Libraries used  - Flask, jq, pandas, virtualenv, pytest, tox, 
 
 ## Target Architecture
 A client server microservice based application. 
@@ -20,7 +21,7 @@ For now the service does not use a backend.
 
 ## Usage
 The source code of the application is available at github. 
-Install Python, Flask and run the server.py
+Install Python, Flask and run the `server.py`
 
 ## What was done 
 ### Installation of virtualenv and Flask, pytest, jq project set up. 
@@ -52,7 +53,7 @@ my_app/
        - unit
     - model
 ```
-1. we create the __init__.py file, so that we can treat it as moudle
+1. we create the `__init__.py` empty file, so that we can treat it as moudle
 
 ### Test run the application. 
 `python server.py` launces this and the application would be available at the stock URL 

@@ -1,10 +1,31 @@
-import pytest
-
-from app.value_object import Valueobj
+import unittest
 
 # checks the add service is working correctly
 
-@pytest.fixture
-def new_valueobj():
-    vo = Valueobj(1, 2, 4)
-    return vo
+
+class AddTest(unittest.TestCase):
+    # init
+    @classmethod
+    def setUpClass(cls):
+        pass
+
+    # clean up
+    @classmethod
+    def tearDownClass(cls):
+        pass
+
+    # test init
+    def setUp(self):
+        pass
+
+    # test clean up
+    def tearDown(self):
+        pass
+
+    # test method
+    def test_equal(self):
+        self.assertEqual(2, 2)
+
+
+if __name__ == '__main__':
+    unittest.main()
