@@ -80,7 +80,6 @@ At this stage we are ripe enough to introduce TDD. We use pytest rather than the
 At this stage both our`pytest` fails. 
 ![](https://i.imgur.com/QgGbIcc.png)
 
-
 		
 1. unit 
 	1. `add` service throws proper error on incorrect input, 
