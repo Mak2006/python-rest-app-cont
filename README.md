@@ -1,7 +1,8 @@
 # python-rest-app-cont
 
 # Aim of the application 
-**Demo of a python based REST api microservices based applciation. The application adds two numbers and returns the result. The UI is intended as the first microservice and the backend as the second one.  **
+**Demo of a python based REST api microservices based applciation.**
+The application adds two numbers and returns the result. The UI is intended as the first microservice and the backend as the second one.  
 
 ## Stages of the application dev and SDLC - overall follow a **TDD** and agile approach
 1. Stage 1 - Create a monolith and implement the fuctionality. 
@@ -10,7 +11,7 @@
 
 ## Current status of application 
 1. Stage 1 WIP	
-2. Libraries used  - Flask, jq, pandas, virtualenv, pytest, tox, 
+2. Libraries used  - Flask, jq, virtualenv, pytest, tox, 
 
 ## Target Architecture
 A client server microservice based application. 
@@ -18,13 +19,12 @@ Client is web based UI, a flask based python microservice application.
 Server is a microservice which exposes a REST API.  The REST API documentation is using Swagger documentation. 
 For now the service does not use a backend. 
 
-
 ## Usage
 The source code of the application is available at github. 
 Install Python, Flask and run the `server.py`
 
 ## What was done 
-### Installation of virtualenv and Flask, pytest, jq project set up. 
+### virtualenv and Flask, pytest, jq project were set up. 
 1. We install virtualenv, create a directory for the env and install Flask in it. Flasks installs the core components flask, Werkzeug, Jinja2, click, itsdangerous, and markupsafe.
 2. Create Github repo and load the project in PyCharm. 
 
@@ -35,25 +35,19 @@ Install Python, Flask and run the `server.py`
 1. With debug on we made some changes to `server.py` and refresh the browser. We are able to see the changes.
 
 ### Project organization 
-1. We use the generic Flask based structure and adopt structure which can be enhanced in the future. 
-
+1. We use the generic directory structure, our app is mathapp and a module, tests are separated, 
 ```
-my_app/ 
+mathapp/
     - server.py  # serves a monolith , contain view, model
     - configuration.py 
     - __init__.py 
     - static/ 
        - home.html  # our landing page
-       - css/ 
-        - js/ 
-        - images/ 
-            - home.png 
-    - tests            
-       - functional  
-       - unit
-    - model
+tests/            
+    - functional  
+    - unit
 ```
-1. we create the `__init__.py` empty file, so that we can treat it as moudle
+1. we create the `__init__.py` empty file, so that we can treat `mathapp` as a moudle
 
 ### Test run the application. 
 `python server.py` launces this and the application would be available at the stock URL 
@@ -75,13 +69,18 @@ A add method is created. It is exposed as as POST method using `@app.route('/big
 Firing a few curls gives the result below 
 ![res](https://i.imgur.com/rETQRdq.png)
 
-### We now create a test module to test the `add` service.
-Under application root we include a `tests` directory and create our tests `test_addsvc.py` We use pytest rather than the built in `unittest` as pytest does more, and already have it installed. pytest would auto discover the tests from file prefixed with `test_`. We further keep our functional and unit tests separate. 
 
 ### TDD 
-At this stage we are ripe enough to introduce TDD, we intend to creat the following tests
-1. functional - that the `UI` layer , web pages handles auth, 4xx and 5xx errors, shows the result. 
-1. unit - `add` service throws proper error on incorrect input, computes correctly. 
+At this stage we are ripe enough to introduce TDD. We use pytest rather than the built in `unittest` as pytest does more, and already have it installed. pytest would auto discover the tests from file prefixed with `test_`. We further keep our functional and unit tests separate. 
+
+We intend to creat the following tests
+1. functional - 
+	1. that the `UI` layer handles auth, 4xx and 5xx errors, 
+	1. shows the result. 
+1. unit 
+	1. `add` service throws proper error on incorrect input, 
+	1. The method computes the sum correctly. 
+
 
 ### Exposing the documentation for the REST layer
 
