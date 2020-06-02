@@ -80,6 +80,9 @@ At this stage we are ripe enough to introduce TDD. We use pytest rather than the
 At this stage both our`pytest` fails. 
 ![](https://i.imgur.com/QgGbIcc.png)
 
+
+After adding the code for 404 and 500, we now have added custom error pages as below. `pytest` also passes. The custom 500 error page. 
+![500](https://i.imgur.com/nKmVTpW.png)
 		
 1. unit 
 	1. `add` service throws proper error on incorrect input, 
