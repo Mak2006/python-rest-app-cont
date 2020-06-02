@@ -60,7 +60,7 @@ At this stage our application is ![App](https://i.imgur.com/w5yGfU3.png)
 ### The REST backend layer and the model
 At this stage it is a monolith and in the same `server.py` we create our service and model. 
 We add the HTTP POST handlers. This is the part where the REST api is created. 
-A add method is created. It is exposed as as POST method using `@app.route('/bigmaths/api/v1.0/add', methods=['POST'])`. The input parameters are obtained via `a = request.json.get('number1', 0);` where `number1` matches the input field. The data is then converted to floats. Then the result is then returned via jsonify object
+A add method is created. It is exposed as as POST method using `@app.route('/mathapp/api/v1.0/add', methods=['POST'])`. The input parameters are obtained via `a = request.json.get('number1', 0);` where `number1` matches the input field. The data is then converted to floats. Then the result is then returned via jsonify object
 
 ### Testing the `add` service layer. We do the following test
 1. Using curl to post a message. 
@@ -74,21 +74,21 @@ Firing a few curls gives the result below
 At this stage we are ripe enough to introduce TDD. We use pytest rather than the built in `unittest` as pytest does more, and already have it installed. pytest would auto discover the tests from file prefixed with `test_`. We further keep our functional and unit tests separate. 
 
 We intend to creat the following tests
-1. functional - 
-	1. that the `UI` layer handles auth, 4xx and 5xx errors, 
-	1. shows the result. 
+1. functional - The page does show the result. 
 1. unit 
 	1. `add` service throws proper error on incorrect input, 
 	1. The method computes the sum correctly. 
+
+### Error handling 
+1. We now add custom 4xx and 5xx error handling. 
+2. We tackle conversion errors. 
+
+### 
 
 
 ### Exposing the documentation for the REST layer
 
 
-
-### Adding basic error check 
-1. We 4xx and 5xx checks.
-2. We tackle conversion errors. 
 
 ### Adding Logging 
 
