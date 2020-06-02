@@ -1,7 +1,6 @@
 from flask import Flask
 from flask import render_template, jsonify, request
-
-from bigapp.value_object import Valueobj
+from mathapp.service import sum
 
 
 # Create the Flask application instance
@@ -32,14 +31,11 @@ def add():
     c = request.json.get('number3', 0);
 
     # converting to int
-    a, b, c = float(a), float(b), float(c)
-
-    #create a value object
-    vo = Valueobj(a, b, c)
+    data = [float(a), float(b), float(c)]
 
     #for the result
     result = {
-        'result': add(vo) # call the service with the vo.
+        'result': sum(data) # call the service with the vo.
     }
 
     # return
