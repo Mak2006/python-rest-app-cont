@@ -73,8 +73,15 @@ Firing a few curls gives the result below
 ### TDD 
 At this stage we are ripe enough to introduce TDD. We use pytest rather than the built in `unittest` as pytest does more, and already have it installed. pytest would auto discover the tests from file prefixed with `test_`. We further keep our functional and unit tests separate. 
 
-We intend to creat the following tests
-1. functional - The page does show the result. 
+### Adding the functional tests. 
+1. functional - we add two tests 
+	1. **404 response test** We want to show a custom 404 page if there is a client error. So we create a test for this.
+	2. **Response shown test** - we want to make sure a response is actually being shown to the user.
+At this stage our `pytest` fails. 
+![](https://i.imgur.com/QgGbIcc.png)
+
+
+		
 1. unit 
 	1. `add` service throws proper error on incorrect input, 
 	1. The method computes the sum correctly. 
