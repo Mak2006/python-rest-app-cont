@@ -1,7 +1,7 @@
 from flask import Flask
 from flask import render_template, jsonify, request
 
-from model.value_object import Valueobj
+from app.value_object import Valueobj
 
 
 # Create the Flask application instance

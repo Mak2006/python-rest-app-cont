@@ -1,9 +1,0 @@
-
-To add error check 
-
-@app.errorhandler(404)
-def not_found(error):
-    return make_response(jsonify({'error': 'Not found'}), 404)
-    
-sample test suites
-curl -i -H "Content-Type: application/json" -X POST -d '{"number1":"20", "number2":"30", "number3":"40"}' http://127.0.0.1:5000/bigmaths/api/v1.0/add
