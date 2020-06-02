@@ -26,9 +26,9 @@ def home():
 @app.route('/mathapp/api/v1.0/add', methods=['POST'])
 def add():
     # Obtain the inputs
-    a = request.json.get('number1', 0);
-    b = request.json.get('number2', 0);
-    c = request.json.get('number3', 0);
+    a = request.json.get('number1', 0)
+    b = request.json.get('number2', 0)
+    c = request.json.get('number3', 0)
 
     # converting to int
     data = [float(a), float(b), float(c)]
@@ -41,9 +41,10 @@ def add():
     # return
     return jsonify({'result': result}), 201
 
-#this forms our actual data layer.
-def add(vo):
-    return vo.addservice()
+@app.errorhandler(404)
+def key_error(e):
+    return render_template('404.html'), 404
+
 
 #Make it run.
 if __name__ == '__main__':
