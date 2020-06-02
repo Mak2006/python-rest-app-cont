@@ -82,7 +82,9 @@ At this stage both our`pytest` fails.
 
 
 After adding the code for 404 and 500, we now have added custom error pages as below. `pytest` also passes. The custom 500 error page. 
-![500](https://i.imgur.com/nKmVTpW.png)
+![500](https://i.imgur.com/nKmVTpW.png) 
+
+We now move on to unit tests. 
 		
 1. unit 
 	1. `add` service throws proper error on incorrect input, 
