@@ -77,7 +77,7 @@ At this stage we are ripe enough to introduce TDD. We use pytest rather than the
 1. functional - we add two tests 
 	1. **404 response test** We want to show a custom 404 page if there is a client error. So we create a test for this.
 	2. **Response shown test** - we want to make sure a response is actually being shown to the user.
-At this stage our `pytest` fails. 
+At this stage both our`pytest` fails. 
 ![](https://i.imgur.com/QgGbIcc.png)
 
 
