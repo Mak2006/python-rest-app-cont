@@ -24,7 +24,7 @@ def home():
 
 # the server part, @todo microservice
 # It is exposed as as POST method using `@mathapp.route('/bigmaths/api/v1.0/add', methods=['POST'])`. The input parameters are obtained via `a = request.json.get('number1', 0);` where `number1` matches the input field. The data is then converted to floats. Then the result is then returned via jsonify object
-@app.route('/bigmaths/api/v1.0/add', methods=['POST'])
+@app.route('/mathapp/api/v1.0/add', methods=['POST'])
 def add():
     # Obtain the inputs
     a = request.json.get('number1', 0);
