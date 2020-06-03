@@ -86,10 +86,21 @@ After adding the code for 404 and 500, we now have added custom error pages as b
 
 Now before we move on to doing a few more tests, we include logging
 ### Adding Logging 
+For this we do not use any additional libraries and use the built in logging and add the code below to `server.py`
+```
+    handler = FileHandler('C:\log\mathapp.log')
+    handler.setLevel(logging.DEBUG)
+    handler.setFormatter(Formatter(
+        '%(asctime)s %(levelname)s: %(message)s '
+        '[in %(filename)s:%(lineno)d]'
+    ))
+    app.logger.addHandler(handler)
+    app.logger.info("*** App started ")
+    app.logger.info('Log test info')
 
+```
 
-
-		
+We now implement other tests.	
 1. unit 
 	1. `add` service throws proper error on incorrect input, 
 	1. The method computes the sum correctly. 

@@ -1,7 +1,6 @@
 add 4xx tests, 5xx error handling, 
 add authentication 
 add functional tests
-
 check the test coverage using tox
 
 add logging 

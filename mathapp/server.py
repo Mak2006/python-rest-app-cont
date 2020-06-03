@@ -5,15 +5,11 @@ from flask import render_template, jsonify, request
 from mathapp.service import sum
 
 import logging.handlers
+from logging import Formatter, FileHandler
 
 # Create the Flask application instance
 app = Flask(__name__, template_folder="static")
 
-handler = logging.handlers.RotatingFileHandler(
-        'C:\log\mathapp.log',
-        maxBytes=1024 * 1024)
-handler.setLevel(logging.DEBUG)
-app.logger.addHandler(handler)
 
 
 
@@ -26,6 +22,7 @@ app.config.from_object('configuration.DevelopmentConfig');
 # We create a landing pagem, the ui  part, @todo microservice
 @app.route('/')
 def home():
+    app.logger.info('Rendering home ')
     return render_template('home.html')
 
 
@@ -33,6 +30,8 @@ def home():
 # It is exposed as as POST method using `@mathapp.route('/mathapp/api/v1.0/add', methods=['POST'])`. The input parameters are obtained via `a = request.json.get('number1', 0);` where `number1` matches the input field. The data is then converted to floats. Then the result is then returned via jsonify object
 @app.route('/mathapp/api/v1.0/add', methods=['POST'])
 def add():
+    app.logger.info('Call to add api ')
+
     # Obtain the inputs
     a = request.values.get('number1')
     b = request.values.get('number2')
@@ -65,4 +64,15 @@ def internal_server_error(e):
 
 #Make it run.
 if __name__ == '__main__':
+    handler = FileHandler('C:\log\mathapp.log')
+    handler.setLevel(logging.DEBUG)
+    handler.setFormatter(Formatter(
+        '%(asctime)s %(levelname)s: %(message)s '
+        '[in %(filename)s:%(lineno)d]'
+    ))
+    app.logger.addHandler(handler)
+    app.logger.info("*** App started ")
+    app.logger.info('Log test info')
+
+
     app.run()
