@@ -37,6 +37,6 @@ def test_page_response():
     }
     payload = json.dumps(payload)
     response = requests.post("http://127.0.0.1:5000/mathapp/api/v1.0/add", json=payload)
-    assert response.status_code == 201
+    assert response.status_code == 200
     #We expect a Result variable set to 90
     assert response.json['Result'] == 90

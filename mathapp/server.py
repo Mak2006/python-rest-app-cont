@@ -4,10 +4,16 @@ from flask import render_template, jsonify, request
 
 from mathapp.service import sum
 
+import logging.handlers
 
 # Create the Flask application instance
 app = Flask(__name__, template_folder="static")
 
+handler = logging.handlers.RotatingFileHandler(
+        'C:\log\mathapp.log',
+        maxBytes=1024 * 1024)
+handler.setLevel(logging.DEBUG)
+app.logger.addHandler(handler)
 
 
 
@@ -24,18 +30,17 @@ def home():
 
 
 # the server part, @todo microservice
-# It is exposed as as POST method using `@mathapp.route('/bigmaths/api/v1.0/add', methods=['POST'])`. The input parameters are obtained via `a = request.json.get('number1', 0);` where `number1` matches the input field. The data is then converted to floats. Then the result is then returned via jsonify object
+# It is exposed as as POST method using `@mathapp.route('/mathapp/api/v1.0/add', methods=['POST'])`. The input parameters are obtained via `a = request.json.get('number1', 0);` where `number1` matches the input field. The data is then converted to floats. Then the result is then returned via jsonify object
 @app.route('/mathapp/api/v1.0/add', methods=['POST'])
 def add():
     # Obtain the inputs
-
-    # removing support for curl
-    a = request.json.get('number1')
-    b = request.json.get('number2')
-    c = request.json.get('number3')
-
+    a = request.values.get('number1')
+    b = request.values.get('number2')
+    c = request.values.get('number3')
+    app.logger.debug('A value for debugging' + a + b + c)
     # converting to int
-    data = [float(a), float(b), float(c)]
+    #data = [float(a), float(b), float(c)]
+    data = [a, b, c]
 
     #for the result
     result = {
@@ -43,7 +48,8 @@ def add():
     }
 
     # return
-    return jsonify({'result': result}), 201
+    #return jsonify({'result': result}), 201
+    return render_template('home.html', jsonify({'Result': result}))
 
 # Add a 404 custom for pytest
 @app.errorhandler(404)
@@ -54,6 +60,8 @@ def key_error(e):
 @app.errorhandler(Exception)
 def internal_server_error(e):
     return render_template('500.html'), 500
+
+
 
 #Make it run.
 if __name__ == '__main__':

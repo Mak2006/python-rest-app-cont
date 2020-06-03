@@ -82,9 +82,13 @@ At this stage both our`pytest` fails.
 
 
 After adding the code for 404 and 500, we now have added custom error pages as below. `pytest` also passes. The custom 500 error page. 
-![500](https://i.imgur.com/nKmVTpW.png) 
+<kbd>![500](https://i.imgur.com/nKmVTpW.png) </kbd>
 
-We now move on to unit tests. 
+Now before we move on to doing a few more tests, we include logging
+### Adding Logging 
+
+
+
 		
 1. unit 
 	1. `add` service throws proper error on incorrect input, 
@@ -94,14 +98,11 @@ We now move on to unit tests.
 1. We now add custom 4xx and 5xx error handling. 
 2. We tackle conversion errors. 
 
-### 
 
 
 ### Exposing the documentation for the REST layer
 
 
-
-### Adding Logging 
 
 ### Adding basic security
 
