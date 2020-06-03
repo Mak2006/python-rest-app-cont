@@ -31,7 +31,7 @@ Create a Python client server application that takes in two numbers and return t
 3. Stage 3 - Containerize the application and host on Docker or Heroku
 
 ## Current status of application 
-1. Stage 1 WIP	
+1. Stage 1 **Completed and tagged as v1.1 Stage1**	
 2. Libraries used - Flask, jq, virtualenv, pytest, tox, 
 
 ## Target Architecture
@@ -41,7 +41,7 @@ Server is a microservice which exposes a REST API.  The REST API documentation i
 For now, the service does not use a backend. 
 
 
-## Stage 1 - status WIP
+## Stage 1 - status **Completed and tagged v1.1 Stage1**
 ### Installations 
 1. Installated virtualenv and Flask, pytest, jq project were set up. 
 1. We install virtualenv, create a directory for the env and install Flask in it. Flasks installs the core components flask, Werkzeug, Jinja2, click, itsdangerous, and markupsafe.
@@ -92,7 +92,7 @@ Firing a few curls gives the result below
 **Note** at this stage we are using json, we have removed this later. 
 
 ### TDD 
-At this stage, we start with TDD, ** that is do the tests first and then develop**. We use pytest rather than the built in `unittest` as pytest does more, and already have it installed. pytest would auto discover the tests from file prefixed with `test_`. We further keep our functional and unit tests separate. 
+At this stage, we start with TDD, **that is do the tests first and then develop**. We use pytest rather than the built in `unittest` as pytest does more, and already have it installed. pytest would auto discover the tests from file prefixed with `test_`. We further keep our functional and unit tests separate. 
 
 ### Adding the functional tests. 
 1. functional - we add two tests 
