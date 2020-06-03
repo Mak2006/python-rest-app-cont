@@ -1,0 +1,30 @@
+.. Mathapp documentation master file, created by
+   sphinx-quickstart on Wed Jun  3 19:10:13 2020.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Configuration of Project Environment
+*************************************
+
+This is an Python and Flask based web UI client and REST API that returns the sum of three integers.
+
+Overview on How to Run this API
+================================
+1. Install Git and clone from source https://github.com/Mak2006/python-rest-app-cont.git
+2. Install Python and Flask. 
+3. Additionally install curl and pytest to test modules. packages required
+4. Import the project python-rest-app-cont into PyCharm IDE
+5. Run server.py::
+6. The app comes with a UI - This would be available at http://127.0.0.1:5000/ This can be used to test the API. 
+7. The API can also be invoked by curl. This is as below. 
+	curl -d "number1=33&number2=44&number3=55" -X POST http://127.0.0.1:5000/mathapp/api/v1.0/add
+8. The app comes with log available at 
+	C:/log/mathapp.log
+9. The app makes certain assumptions detailed below. It also gives the development ideology.
+	https://github.com/Mak2006/python-rest-app-cont/blob/master/README.md	
+	
+Endpoints of the server API
+============================
+1. UI at http://127.0.0.1:5000/
+2. API Endpoint at http://127.0.0.1:5000/mathapp/api/v1.0/add
+

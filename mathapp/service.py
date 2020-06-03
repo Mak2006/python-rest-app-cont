@@ -3,8 +3,22 @@
 NULL_ERR_MSG = "Cannot add null data"
 EMPTY_ERR_MSG = "Cannot add empty list"
 STRING_ERR_MSG = "Cannot add str data"
-def sum(arg):
 
+
+def sum(arg):
+    """Method returns the sum elements within arg. 
+
+    This service takes a list of items as arg, it checks if the items are integers and if so adds them
+    and returns the result.
+
+    Args:
+        arg (list): list Of elements, there is no restriction on the type of element.
+
+    Returns:
+        int: result of addition of all the elements within arg.
+    	str: reason why it could not perform addition.
+    """
+   
     # We now check the input to complete the unit tests
     if None in arg:  # if there is no input data
         return NULL_ERR_MSG

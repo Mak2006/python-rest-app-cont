@@ -1,13 +1,13 @@
 # python-rest-app-cont
 
+**Note this is detailed documentation, a very short version is at within docs/index.html**
+
+
 # Aim of the application 
+The application adds two numbers and returns the result. The UI is later intended to be the first microservice and the service as the second one.  
 
-**Demo of a python based REST API microservices based application.**
-
-The application adds two numbers and returns the result. The UI is later intended to be the first microservice and the backend as the second one.  
-
-##Requirements 
-Create a Python client server application that takes in two numbers and returns the result. 
+## Requirements 
+Create a Python client server application that takes in two numbers and return the result. Follow basic SDLC.
 
 ## Assumptions made
 1. On Requirements - 
@@ -19,6 +19,7 @@ Create a Python client server application that takes in two numbers and returns 
 	1. The UI will not retain the values after it computes the addition. 
 	1. The API will show proper message if improper data is supplied.
 	1. Basic error handling and logging is required. 
+	1. The app assumes being run on Windows environment, it expects a directory`'C:\log\` where it creates the log file `mathapp.log`
 1. Architecture - 
 	1. Single app, no load balancing and production level features like security.
 	2. No authentication, authorization is required. 
