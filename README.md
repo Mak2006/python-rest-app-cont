@@ -1,11 +1,13 @@
 # python-rest-app-cont
 
 # Aim of the application 
-**Demo of a python based REST api microservices based applciation.**
+
+**Demo of a python based REST API microservices based application.**
+
 The application adds two numbers and returns the result. The UI is later intended to be the first microservice and the backend as the second one.  
 
 ##Requirements 
-Creat a Python client server applicaton that takes in two numbers and returns the result. 
+Create a Python client server application that takes in two numbers and returns the result. 
 
 ## Assumptions made
 1. On Requirements - 
@@ -24,22 +26,22 @@ Creat a Python client server applicaton that takes in two numbers and returns th
 	1. The app is not required to be packaged. 
 	
 ## Stages of the application dev and SDLC - overall follow a **TDD** and agile approach
-1. Stage 1 - Create a monolith and implement the fuctionality. 
+1. Stage 1 - Create a monolith and implement the functionality. 
 2. Stage 2 - Dissect the application into two microservices, add swagger documentation for REST API.
-3. Stage 3 - Containerize the applicaition and host on Docker or Heroku
+3. Stage 3 - Containerize the application and host on Docker or Heroku
 
 ## Current status of application 
 1. Stage 1 WIP	
-2. Libraries used  - Flask, jq, virtualenv, pytest, tox, 
+2. Libraries used - Flask, jq, virtualenv, pytest, tox, 
 
 ## Target Architecture
 A client server microservice based application. 
 Client is web based UI, a flask based python microservice application. 
 Server is a microservice which exposes a REST API.  The REST API documentation is using Swagger documentation. 
-For now the service does not use a backend. 
+For now, the service does not use a backend. 
 
 ## Usage
-The source code of the application is available at github. 
+The source code of the application is available at [Github](https://github.com/Mak2006/python-rest-app-cont). 
 Install Python, Flask and run the `server.py`
 
 
@@ -55,7 +57,7 @@ Install Python, Flask and run the `server.py`
 1. With debug on we made some changes to `server.py` and refresh the browser. We are able to see the changes.
 
 ### Project organization 
-1. We use the generic directory structure, our app is mathapp and a module, tests are separated, 
+1. We use the generic directory structure, our app is `mathapp` and a module, tests are separated, 
 ```
 mathapp/
     - server.py  # serves a monolith , contain view, model
@@ -67,20 +69,20 @@ tests/
     - functional  
     - unit
 ```
-1. we create the `__init__.py` empty file, so that we can treat `mathapp` as a moudle
+1. we create the `__init__.py` empty file, so that we can treat `mathapp` as a module
 
 ### Test run the application. 
 `python server.py` launces this and the application would be available at the stock URL 
 ![enter image description here](https://i.imgur.com/rPo5m1T.png)
 
 ### Enhance the UI 
-The UI at present has no authentication or authorisation, it is a simple mechnism to obtain some input and call the rest service exposed and get the response.  This is merely achived by including a home.html which serves as the landing page of our application. We change it and we add a welcome note and add a form.
+The UI at present has no authentication or authorisation, it is a simple mechanism to obtain some input and call the rest service exposed and get the response.  This is merely achieved by including a home.html which serves as the landing page of our application. We change it and we add a welcome note and add a form.
 At this stage our application is ![App](https://i.imgur.com/w5yGfU3.png)
 
 ### The REST backend layer and the model
 At this stage it is a monolith and in the same `server.py` we create our service and model. 
 We add the HTTP POST handlers. This is the part where the REST api is created. 
-A add method is created. It is exposed as as POST method using `@app.route('/mathapp/api/v1.0/add', methods=['POST'])`. The input parameters are obtained via `a = request.json.get('number1', 0);` where `number1` matches the input field. The data is then converted to floats. Then the result is then returned via jsonify object
+A add method is created. It is exposed as as POST method using `@app.route('/mathapp/api/v1.0/add', methods=['POST'])`. The input parameters are obtained via `a = request.json.get('number1', 0);` where `number1` matches the input field. The data is then converted to floats. Then the result is then returned via jsonify object. **Edit** - this has been changed to remove support for json and stick to only form encoded.
 
 ### Testing the `add` service layer. We do the following test
 1. Using curl to post a message. 
@@ -97,7 +99,7 @@ At this stage, we start with TDD, ** that is do the tests first and then develop
 1. functional - we add two tests 
 	1. **404 response test** We want to show a custom 404 page if there is a client error. So we create a test for this.
 	2. **Response shown test** - we want to make sure a response is actually being shown to the user.
-At this stage both our`pytest` fails. 
+At this stage both our `pytest` fails. 
 ![](https://i.imgur.com/QgGbIcc.png)
 
 
@@ -119,8 +121,8 @@ For this we do not use any additional libraries and use the built in logging and
     app.logger.info('Log test info')
 
 ```
-### TDD continued - implmenting the core functional test
-We resume the core functional test which is to make sure a result is acutally displayed, this is our test `test_page_response()` in the `test_func.py` The form is changed to send the result using `   return render_template('home.html', Result=result )`. The `home.html` now has the display usin `{{Result}}`.
+### TDD continued - implementing the core functional test
+We resume the core functional test which is to make sure a result is actually displayed, this is our test `test_page_response()` in the `test_func.py` The form is changed to send the result using `   return render_template('home.html', Result=result )`. The `home.html` now has the display usin `{{Result}}`.
 ![](https://i.imgur.com/GfzLMzO.png)
 
 ### TDD continued - unit tests
