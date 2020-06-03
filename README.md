@@ -2,8 +2,26 @@
 
 # Aim of the application 
 **Demo of a python based REST api microservices based applciation.**
-The application adds two numbers and returns the result. The UI is intended as the first microservice and the backend as the second one.  
+The application adds two numbers and returns the result. The UI is later intended to be the first microservice and the backend as the second one.  
 
+##Requirements 
+Creat a Python client server applicaton that takes in two numbers and returns the result. 
+
+## Assumptions made
+1. On Requirements - 
+	1. The API will be callable by both curl and UI. 
+	1. The API will accept only default application/x-www-form-urlencoded method.
+	1. The input data requires to be checked for null, wrong values
+	1. Proper error will be shown for 4xx,5xx
+	1. The UI will not retain the values after it computes the addition. 
+	1. The API will show proper message if improper data is supplied.
+	1. Basic error handling and logging is required. 
+1. Architecture - 
+	1. Single app, no load balancing and production level features like security.
+	2. No authentication, authorization is required. 
+	2. No CI/CD, containerization is required
+	1. The app is not required to be packaged. 
+	
 ## Stages of the application dev and SDLC - overall follow a **TDD** and agile approach
 1. Stage 1 - Create a monolith and implement the fuctionality. 
 2. Stage 2 - Dissect the application into two microservices, add swagger documentation for REST API.
@@ -23,7 +41,8 @@ For now the service does not use a backend.
 The source code of the application is available at github. 
 Install Python, Flask and run the `server.py`
 
-## What was done 
+
+##Stage 1 - status WIP
 ### virtualenv and Flask, pytest, jq project were set up. 
 1. We install virtualenv, create a directory for the env and install Flask in it. Flasks installs the core components flask, Werkzeug, Jinja2, click, itsdangerous, and markupsafe.
 2. Create Github repo and load the project in PyCharm. 
@@ -68,10 +87,10 @@ A add method is created. It is exposed as as POST method using `@app.route('/mat
 
 Firing a few curls gives the result below 
 ![res](https://i.imgur.com/rETQRdq.png)
-
+**Note** at this stage we are using json, we have removed this later. 
 
 ### TDD 
-At this stage we are ripe enough to introduce TDD. We use pytest rather than the built in `unittest` as pytest does more, and already have it installed. pytest would auto discover the tests from file prefixed with `test_`. We further keep our functional and unit tests separate. 
+At this stage, we start with TDD, ** that is do the tests first and then develop**. We use pytest rather than the built in `unittest` as pytest does more, and already have it installed. pytest would auto discover the tests from file prefixed with `test_`. We further keep our functional and unit tests separate. 
 
 ### Adding the functional tests. 
 1. functional - we add two tests 
@@ -105,32 +124,45 @@ We resume the core functional test which is to make sure a result is acutally di
 
 ### TDD continued - unit tests
 We now check if the service would work correctly in all , specifically
-	1. `add` service throws proper error on incorrect input, 
-	1. The method computes the sum correctly. 
+1. `sum` service throws proper error on incorrect input, 
+1. The method computes the sum correctly. 
+We add the following unit test assertions in `test_unit.py`
+```
+def test_sum():
+    nulldata1 = [None, None]
+    strdata2 = ["a", "b", "c"]
+    nulllist = []
 
-### Error handling 
-1. We now add custom 4xx and 5xx error handling. 
-2. We tackle conversion errors. 
+    result = str(sum(nulldata1))
+    assert "Cannot add null data" == result
+
+    result = str(sum(strdata2))
+    assert "Cannot add str data" == result
+
+    result = str(sum(nulllist))
+    assert "Cannot add empty list" == result
+
+```
+
+Right now if we supply empty data from UI we see the following. 
+<kbd>![Server cant handle null](https://i.imgur.com/WrSU5wi.png)</kbd>
+
+The pytests are also failing as the `sum()` does no input checking
+![sum service is failing](https://i.imgur.com/PE9NCiG.png)
+
+*So our tests are now created and we start developing*
 
 
+This completes the first Stage of the project.
 
-### Exposing the documentation for the REST layer
+## Stage 2 - TBD
+1. Exposing the documentation for the REST layer
+1. Adding basic authentication
 
-
-
-### Adding basic security
-
-### Marrying the UI with the REST service
-
-### Deploy and check the application 
-1. using curl with jq
-2. using the view layers
-
-### Next steps, 
-1. partition the application into separate microservices 
+## Stage 3 - TBD
+1. Partition the application into separate microservices 
 1. Make the application ready for containerization. 
-1. use docker and k8s for containerization. 
-2. set up Jenkins for auto packaging and release. 
+1. set up Jenkins for auto packaging and release. 
 1. Push the images to docker unofficial repo
 
 
