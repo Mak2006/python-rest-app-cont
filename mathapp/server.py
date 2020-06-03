@@ -49,7 +49,14 @@ def add():
     data = [a, b, c]
 
     #for the result
-    result = RESULT.format(sum(data))
+    res = sum(data)
+
+    result = RESULT.format(res)
+    if type(res) == int:
+        result = RESULT.format(res)
+    else:
+        app.logger.error('Sum returned error' + res)
+        result = res # sum returned an error
 
     # return
 
@@ -64,6 +71,7 @@ def key_error(e):
 #Add a custom 500 for pytest
 @app.errorhandler(Exception)
 def internal_server_error(e):
+    app.logger.error('500 encountered')
     return render_template("500.html", error = str(e))
 
 

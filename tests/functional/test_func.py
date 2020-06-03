@@ -28,12 +28,12 @@ def test_5xx():
 
 # We want to make sure the response is actually shown to user
 # Make a post with three numbers and 20 30 40
-#
+# A valid request is sent and we want to see an actual response from the API. and rendered on the UI.
 def test_page_response():
     payload = {
-	"number1": "20",
-	"number2": "30",
-	"number3": "40"
+	"number1": 20,
+	"number2": 30,
+	"number3": 40
     }
 
     response = requests.post("http://127.0.0.1:5000/mathapp/api/v1.0/add", data=payload)

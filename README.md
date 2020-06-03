@@ -12,6 +12,7 @@ Creat a Python client server applicaton that takes in two numbers and returns th
 	1. The API will be callable by both curl and UI. 
 	1. The API will accept only default application/x-www-form-urlencoded method.
 	1. The input data requires to be checked for null, wrong values
+	1. The input can be negative.
 	1. Proper error will be shown for 4xx,5xx
 	1. The UI will not retain the values after it computes the addition. 
 	1. The API will show proper message if improper data is supplied.
@@ -152,8 +153,43 @@ The pytests are also failing as the `sum()` does no input checking
 
 *So our tests are now created and we start developing*
 
+We introduce error check on sum() and 
+```
+  # We now check the input to complete the unit tests
+    if None in arg:  # if there is no input data
+        return NULL_ERR_MSG
 
-This completes the first Stage of the project.
+    if len(arg) == 0: # if there is no data
+        return EMPTY_ERR_MSG
+
+```
+
+We also include try catch for the actual action
+```
+    result = 0
+    try:
+        for val in arg:
+            result += int(val)
+    except:
+        # Cannot cast args to int
+        # message is logged from server.py
+        result = STRING_ERR_MSG
+
+```
+
+The test results ` curl -d "number1=33&number2=44&number3=55" -X POST http://127.0.0.1:5000/mathapp/api/v1.0/add
+`
+![curl results](https://i.imgur.com/ZAalk00.png)
+
+The test results of pytest
+![pytest res](https://i.imgur.com/lwPMzu1.png)
+
+All the functional and unit tests are now complete.  We can now move towards documenting the project. 
+
+### Documentation
+
+
+**This completes the first Stage of the project.**
 
 ## Stage 2 - TBD
 1. Exposing the documentation for the REST layer
