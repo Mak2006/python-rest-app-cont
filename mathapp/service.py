@@ -1,5 +1,5 @@
 def sum(arg):
     result = 0
     for val in arg:
-        result += val
+        result += int(val)
     return result

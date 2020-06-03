@@ -21,22 +21,22 @@ def test_404_response():
 def test_5xx():
     page = requests.post("http://127.0.0.1:5000/mathapp/api/v1.0/add",
                          '{"number1":"a", "number2":"b", "number3":"c"}')
-    assert page.status_code == 500
+    #assert page.status_code == 500 # since we have included a handler
     cont = str(page.content)
     assert "The server encountered an error. Please try again later." in cont
 
 
 # We want to make sure the response is actually shown to user
 # Make a post with three numbers and 20 30 40
-# curl -i -H "Content-Type: application/json" -X POST -d '{"number1":"20", "number2":"30", "number3":"40"}' http://127.0.0.1:5000/mathapp/api/v1.0/add
+#
 def test_page_response():
     payload = {
 	"number1": "20",
 	"number2": "30",
 	"number3": "40"
     }
-    payload = json.dumps(payload)
-    response = requests.post("http://127.0.0.1:5000/mathapp/api/v1.0/add", json=payload)
+
+    response = requests.post("http://127.0.0.1:5000/mathapp/api/v1.0/add", data=payload)
     assert response.status_code == 200
-    #We expect a Result variable set to 90
+    #We expect a Result variable set to 90 with a message "The result of addition is 90"
     assert response.json['Result'] == 90

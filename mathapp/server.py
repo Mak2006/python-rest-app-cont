@@ -32,11 +32,19 @@ def home():
 def add():
     app.logger.info('Call to add api ')
 
+    # Making sure we inform the use if any other content type is being sent
+    content_type = request.headers['Content-Type']
+    app.logger.info('content type ' + str(content_type))
+    if (content_type != "application/x-www-form-urlencoded"):
+        raise Exception("content type {} is not supported by mathapp".format(content_type))
+
     # Obtain the inputs
     a = request.values.get('number1')
     b = request.values.get('number2')
     c = request.values.get('number3')
-    app.logger.debug('A value for debugging' + a + b + c)
+    msg = "Input values obtained are a={}, b={} c={}".format(a, b, c)
+    app.logger.info(msg)
+
     # converting to int
     #data = [float(a), float(b), float(c)]
     data = [a, b, c]
@@ -48,17 +56,19 @@ def add():
 
     # return
     #return jsonify({'result': result}), 201
-    return render_template('home.html', jsonify({'Result': result}))
+    jsonify({'Result': result})
+    return render_template('home.html' )
 
 # Add a 404 custom for pytest
 @app.errorhandler(404)
 def key_error(e):
+    app.logger.error('404 encountered -' + request.path)
     return render_template('404.html'), 404
 
 #Add a custom 500 for pytest
 @app.errorhandler(Exception)
 def internal_server_error(e):
-    return render_template('500.html'), 500
+    return render_template("500.html", error = str(e))
 
 
 
