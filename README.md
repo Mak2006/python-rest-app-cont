@@ -99,9 +99,12 @@ For this we do not use any additional libraries and use the built in logging and
     app.logger.info('Log test info')
 
 ```
+### TDD continued - implmenting the core functional test
+We resume the core functional test which is to make sure a result is acutally displayed, this is our test `test_page_response()` in the `test_func.py` The form is changed to send the result using `   return render_template('home.html', Result=result )`. The `home.html` now has the display usin `{{Result}}`.
+![](https://i.imgur.com/GfzLMzO.png)
 
-We now implement other tests.	
-1. unit 
+### TDD continued - unit tests
+We now check if the service would work correctly in all , specifically
 	1. `add` service throws proper error on incorrect input, 
 	1. The method computes the sum correctly. 
 

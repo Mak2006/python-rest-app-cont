@@ -38,5 +38,6 @@ def test_page_response():
 
     response = requests.post("http://127.0.0.1:5000/mathapp/api/v1.0/add", data=payload)
     assert response.status_code == 200
-    #We expect a Result variable set to 90 with a message "The result of addition is 90"
-    assert response.json['Result'] == 90
+    #We expect a Result variable set to 90 with a message "The result of the addition is 90."
+    content = response.content
+    assert "The result of the addition is 90." in str(content)

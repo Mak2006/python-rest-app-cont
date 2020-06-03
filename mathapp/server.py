@@ -10,8 +10,7 @@ from logging import Formatter, FileHandler
 # Create the Flask application instance
 app = Flask(__name__, template_folder="static")
 
-
-
+RESULT = "The result of the addition is {}."
 
 # Load configuration from configuration.py
 # this loads the debug values and secret keys etc.
@@ -50,14 +49,11 @@ def add():
     data = [a, b, c]
 
     #for the result
-    result = {
-        'result': sum(data) # call the service with the vo.
-    }
+    result = RESULT.format(sum(data))
 
     # return
-    #return jsonify({'result': result}), 201
-    jsonify({'Result': result})
-    return render_template('home.html' )
+
+    return render_template('home.html', Result=result )
 
 # Add a 404 custom for pytest
 @app.errorhandler(404)
